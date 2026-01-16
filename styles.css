@@ -1,0 +1,388 @@
+/* --- 1. GLOBAL BODY --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+
+  /* --- GRADIENT (110deg Slant) --- */
+  background: linear-gradient(
+    110deg,
+    #fff3b0 10%,
+    #ffd9ca 30%,
+    #ffc9da 50%,
+    #ffbee4 75%,
+    #ffb0f2 100%
+  );
+}
+
+/* --- 2. SHARED UTILITIES --- */
+.navbar,
+.features-section,
+.hero-text-content,
+.nav-links,
+.content-box-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image Resets */
+.hero-image-wrapper img,
+.grid-img,
+.menu-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- 3. HEADER STYLES --- */
+.main-header {
+  background-color: #f26f72;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  justify-content: center;
+  min-height: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.nav-links {
+  gap: 70px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-family: "Georgia Pro", Georgia, serif;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+/* Hamburger Menu */
+.nav-toggle {
+  display: none;
+}
+
+.hamburger-label {
+  display: block;
+  cursor: pointer;
+  margin-left: 60px;
+  z-index: 1001;
+  flex-shrink: 0;
+}
+
+.menu-icon-img {
+  width: 28px;
+  height: auto;
+}
+
+/* --- 4. HERO SECTION (Default: Side-by-Side for Desktop) --- */
+.hero-section {
+  display: flex;
+  flex-direction: row; /* FORCE ROW for 1024/1440 */
+  align-items: stretch;
+  min-height: 100vh;
+  margin-top: -70px; /* Pull behind header if transparent, or adjust as needed */
+  width: 100%;
+}
+
+.hero-text-content {
+  width: 50%; /* Strictly 50% */
+  padding: 130px 60px 60px;
+}
+
+.hero-image-wrapper {
+  width: 50%; /* Strictly 50% */
+  height: auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+.text-wrapper {
+  max-width: 550px;
+}
+
+/* Typography */
+.hero-text-content h1 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 3.5rem;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-text-content p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  color: #333;
+}
+
+.btn-hero {
+  display: inline-block;
+  background-color: #f26f72;
+  color: white;
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 2px;
+  font-family: "Figtree", sans-serif;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-hero:hover {
+  transform: translateY(-2px);
+  background-color: #d16b62;
+}
+
+/* --- 5. FEATURES SECTION (Default: Side-by-Side for Desktop) --- */
+.features-section {
+  display: flex;
+  flex-direction: row; /* FORCE ROW for 1024/1440 */
+  padding: 80px 5% 150px 5%;
+  gap: 30px;
+  min-height: 80vh;
+  width: 100%;
+}
+
+.grid-gallery {
+  width: 50%; /* Strictly 50% */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 210px 210px;
+  gap: 15px;
+}
+
+.content-box-wrapper {
+  width: 50%; /* Strictly 50% */
+  justify-content: flex-start; /* Aligns box to the left near images */
+  padding-left: 20px;
+}
+
+/* Grid Areas */
+.img-top-left {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.img-bottom-left {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.img-right-tall {
+  grid-area: 1 / 2 / 3 / 3;
+}
+
+/* Red Content Box */
+.red-content-box {
+  background-color: #f26f72;
+  padding: 50px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.sub-heading {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-family: "Houschka Pro", sans-serif;
+  font-weight: 500;
+}
+
+.red-content-box h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.click-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: "Figtree", sans-serif;
+  transition: gap 0.3s;
+}
+
+.click-row:hover {
+  gap: 15px;
+}
+
+.arrow-img {
+  width: 20px;
+}
+
+/* --- 6. RESPONSIVE MEDIA QUERIES --- */
+
+/* 4K / LARGE SCREENS (2560px+) */
+@media (min-width: 1920px) {
+  .nav-links a {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    gap: 100px;
+  }
+}
+
+/* --- THE FIX IS HERE --- */
+/* Changed breakpoint from 1450px to 1023px. 
+   This ensures 1024px & 1440px use the Layouts above (Row).
+   Only screens SMALLER than 1024px will stack. */
+@media (max-width: 1023px) {
+  
+  /* Stack Hero Vertically */
+  .hero-section {
+    flex-direction: column;
+    margin-top: 0;
+    min-height: auto;
+  }
+
+  /* Stack Features Vertically (Reverse so Image is on top) */
+  .features-section {
+    flex-direction: column-reverse;
+    padding: 60px 8% 100px 8%;
+    gap: 40px;
+  }
+  
+  /* Reset Widths to 100% for Mobile/Tablet */
+  .hero-text-content,
+  .hero-image-wrapper,
+  .grid-gallery,
+  .content-box-wrapper {
+    width: 100%;
+  }
+
+  .hero-text-content {
+    padding: 60px 30px;
+    text-align: center;
+  }
+
+  .hero-image-wrapper {
+    height: 500px; /* Fixed height for stacked mode */
+    min-height: auto;
+  }
+
+  .grid-gallery {
+    grid-template-rows: 250px 250px; /* Taller rows for mobile */
+  }
+
+  .content-box-wrapper {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .red-content-box {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .click-row {
+    justify-content: center;
+  }
+}
+
+/* NAV COMPACTING (Targeting Laptops/Tablets) */
+@media (max-width: 1350px) {
+  .nav-links {
+    gap: 30px;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+  .hamburger-label {
+    margin-left: 30px;
+  }
+}
+
+/* MOBILE MENU (Screens smaller than 960px) */
+@media (max-width: 960px) {
+  .navbar {
+    justify-content: flex-end;
+  }
+
+  .hamburger-label {
+    margin-left: 0;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(242, 111, 114, 0.95);
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    letter-spacing: 2px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+  }
+
+  .nav-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  /* Grid adjustment for small screens */
+  .grid-gallery {
+    grid-template-rows: 200px 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text-content h1 {
+    font-size: 2.5rem;
+  }
+  .red-content-box h2 {
+    font-size: 2rem;
+  }
+  .grid-gallery {
+    grid-template-rows: 150px 150px;
+  }
+}
